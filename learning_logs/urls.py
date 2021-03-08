@@ -9,4 +9,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     #Index topics
     path('topics/', views.topics, name='topics'),
+    #Detail page for a dingle topic.
+    path('topics/<int:topic_id>/', views.topic, name='topic'),
 ]
