@@ -51,8 +51,8 @@ def new_entry(request, topic_id):
             new_entry = form.save(commit=false)
             new_entry.topic = topic
             new_entry.save()
-            return redirect('learning_logs:topics', topic_id=topic_id)
+            return redirect('learning_logs:topic', topic_id=topic_id)
         
-        # Display a blank of invalid form.
-        context = {'topic': topic, 'form': form}
-        return render(request, 'learning_logs/new_entry.html', context)
+    # Display a blank of invalid form.
+    context = {'topic': topic, 'form': form}
+    return render(request, 'learning_logs/new_entry.html', context)
