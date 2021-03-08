@@ -64,7 +64,7 @@ def edit_entry(request, entry_id):
 
     if request.method != 'POST':
         #Initial request; pre-fill form with the current entry.
-        form = EntryFomr(instance=entry)
+        form = EntryForm(instance=entry)
     else:
         # POST data submitted; process data.
         form = EntryForm(instance=entry, data=request.POST)
@@ -72,5 +72,5 @@ def edit_entry(request, entry_id):
             form.save()
             return redirect('learning_logs:topic', topic_id=topic.id)
 
-    context = {'entry': entry, 'topic': topic, 'form: form'}
+    context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
